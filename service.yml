@@ -1,0 +1,93 @@
+name: rabbitmq
+icon: rabbitmq
+type: service
+title: RabbitMQ
+scalable: true
+
+options:
+- version: '4.3'
+  tag: '4.3-0.2.0'
+  default: true
+  eol: '2026-11-30T00:00:00+00:00'
+- version: '4.2'
+  tag: '4.2-0.2.0'
+  eol: '2026-07-31T00:00:00+00:00'
+
+endpoints:
+- name: rabbitmq
+  ports:
+  - name: amqp
+    number: 5672
+    protocol: tcp
+  - name: management
+    number: 15672
+    protocol: http
+    main: true
+  - name: metrics
+    number: 15692
+    protocol: http
+    private: true
+
+labels:
+- rabbitmq
+- amqp
+- message-broker
+
+volumes:
+- name: data
+  title: Data
+  optional: true
+  size: 5
+  helm:
+    labels: persistence.labels
+    values:
+    - name: persistence.enabled
+      value: true
+    - name: persistence.size
+      value: '{{volumes.data.size}}Gi'
+
+tokens:
+- name: username
+  value: wodby
+- name: password
+  generate:
+    regex: '[0-9a-z-]{32}'
+- name: vhost
+  value: '/'
+- name: erlang_cookie
+  generate:
+    regex: '[0-9a-z]{32}'
+
+helm:
+  name: wodby
+  source: oci://registry-1.docker.io/wodby/rabbitmq
+  chart: oci://registry-1.docker.io/wodby/rabbitmq
+  version: 0.2.1
+  values:
+  - name: auth.username
+    value: '{{username}}'
+  - name: auth.password
+    value: '{{password}}'
+  - name: auth.vhost
+    value: '{{vhost}}'
+  - name: auth.erlangCookie
+    value: '{{erlang_cookie}}'
+
+workloads:
+- name: main
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: '{{helm.release}}'
+  kind: statefulset
+  primary: true
+  helm:
+    labels: podLabels
+    annotations: podAnnotations
+    volumes: extraVolumes
+  containers:
+  - name: rabbitmq
+    image: wodby/rabbitmq
+    helm:
+      resources: resources
+      env: envVars
+      mounts: extraVolumeMounts

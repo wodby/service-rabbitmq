@@ -1,2 +1,1 @@
-# service-rabbitmq
-RabbitMQ service for Wodby 2.0
+# RabbitMQ service for Wodby 2.0
