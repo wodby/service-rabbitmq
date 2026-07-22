@@ -6,11 +6,11 @@ scalable: true
 
 options:
 - version: '4.3'
-  tag: '4.3-0.2.0'
+  tag: '4.3-0.2.1'
   default: true
   eol: '2026-11-30T00:00:00+00:00'
 - version: '4.2'
-  tag: '4.2-0.2.0'
+  tag: '4.2-0.2.1'
   eol: '2026-07-31T00:00:00+00:00'
 
 endpoints:
