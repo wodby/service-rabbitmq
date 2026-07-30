@@ -2,7 +2,7 @@ name: rabbitmq
 icon: rabbitmq
 type: service
 title: RabbitMQ
-scalable: true
+scalable: false
 
 options:
 - version: '4.3'
