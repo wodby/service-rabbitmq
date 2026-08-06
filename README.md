@@ -20,11 +20,11 @@ configuration for RabbitMQ.
 | Service name | `rabbitmq` |
 | Type | Application service |
 | Versions | `4.3` by default; also available: `4.2` |
-| Workloads | `main` (StatefulSet), primary; scalable |
+| Workloads | `main` (StatefulSet), primary; fixed-size |
 | Containers | `rabbitmq` using `wodby/rabbitmq` |
 | Endpoints | `rabbitmq`: TCP 5672, HTTP 15672 (main), HTTP 15692 |
 | Volumes | Data, 5 GB |
-| Helm | chart `oci://registry-1.docker.io/wodby/rabbitmq`; version `0.2.1` |
+| Helm | chart `oci://registry-1.docker.io/wodby/rabbitmq`; version `0.2.2` |
 | Configuration | 4 generated or fixed tokens |
 
 ## Use this service

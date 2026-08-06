@@ -6,11 +6,11 @@ scalable: false
 
 options:
 - version: '4.3'
-  tag: '4.3-0.2.2'
+  tag: '4.3-0.2.3'
   default: true
   eol: '2026-11-30T00:00:00+00:00'
 - version: '4.2'
-  tag: '4.2-0.2.2'
+  tag: '4.2-0.2.3'
   eol: '2026-07-31T00:00:00+00:00'
 
 endpoints:
@@ -64,7 +64,7 @@ helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/rabbitmq
   chart: oci://registry-1.docker.io/wodby/rabbitmq
-  version: 0.2.1
+  version: 0.2.2
   values:
   - name: auth.username
     value: '{{username}}'
