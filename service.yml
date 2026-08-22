@@ -60,11 +60,16 @@ tokens:
   generate:
     regex: '[0-9a-z]{32}'
 
+deployment:
+  strategy: rolling
+  minReady: 10s
+  shutdownGracePeriod: 120s
+
 helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/rabbitmq
   chart: oci://registry-1.docker.io/wodby/rabbitmq
-  version: 0.2.2
+  version: 0.3.0
   values:
   - name: auth.username
     value: '{{username}}'
