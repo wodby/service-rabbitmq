@@ -64,7 +64,7 @@ helm:
   name: wodby
   source: oci://registry-1.docker.io/wodby/rabbitmq
   chart: oci://registry-1.docker.io/wodby/rabbitmq
-  version: 0.2.2
+  version: 0.3.0
   values:
   - name: auth.username
     value: '{{username}}'
