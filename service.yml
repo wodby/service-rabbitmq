@@ -2,6 +2,7 @@ name: rabbitmq
 icon: rabbitmq
 type: service
 title: RabbitMQ
+guidance: GUIDANCE.md
 scalable: false
 
 options:
