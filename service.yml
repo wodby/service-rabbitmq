@@ -7,11 +7,11 @@ scalable: false
 
 options:
 - version: '4.3'
-  tag: 4.3-r0
+  tag: 4.3-r2
   default: true
   eol: '2026-11-30T00:00:00+00:00'
 - version: '4.2'
-  tag: 4.2-r0
+  tag: 4.2-r2
   eol: '2026-07-31T00:00:00+00:00'
 endpoints:
 - name: rabbitmq
