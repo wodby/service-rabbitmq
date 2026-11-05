@@ -94,6 +94,10 @@ workloads:
   containers:
   - name: rabbitmq
     image: wodby/rabbitmq
+    resources:
+      request:
+        cpu: 20
+        memory: 160
     helm:
       resources: resources
       env: envVars
