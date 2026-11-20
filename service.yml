@@ -8,10 +8,12 @@ scalable: false
 options:
 - version: '4.3'
   tag: 4.3-r4
+  digest: sha256:2aae5370c2aa1428ee404635ffeedb0dfe2172054a71bf6fbdfe35f05257f9d9
   default: true
   eol: '2027-01-31T00:00:00+00:00'
 - version: '4.2'
   tag: 4.2-r4
+  digest: sha256:b6a7b4e0f5dac6e49dea664102f798bdb092067cacd267ea9570387e73289e80
   eol: '2026-07-31T00:00:00+00:00'
 endpoints:
 - name: rabbitmq
